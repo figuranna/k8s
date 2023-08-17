@@ -1,0 +1,18 @@
+Containers
+Pods
+Services
+ReplicaSets:
+    Gives the pods a new unique id (er pod/webapp-spjtb)
+    kubectl get all -V-
+
+        DESIRED     CURRENT     READY
+        1           1           1
+
+        desired: how many we want running
+        current: number of containers that are running
+        ready: number of containers that are responding to requests
+
+    * Automatically creates a new pod if one crashes and stops
+    * The downside is that there is no instance for that pod, there'll be downtime
+    * There can be many replicas, we need to figure out how much replicas we need for a microservice
+        * The different replicas will be running on different computers (in our case it runs on the same)
