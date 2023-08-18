@@ -4,8 +4,10 @@ Course: https://www.udemy.com/course/kubernetes-microservices/
 
 ### Kubernetes
 ### Containers
+### Clusters
 ### Pods
 ### Services
+* Each service is given it's own private IP address that is only visible inside the Kubernetes cluster.
 
 ### ReplicaSets
 * Gives the pods new unique id (er pod/webapp-***spjtb***)
@@ -32,9 +34,28 @@ Rollouts : rolling updates, meaning that the application is updated gradually, g
 Rollbacks : opposite of *rollouts*. 
 * If we do a rollout or a rollback we create a new revision each time
     * We created a rollout (rev 3)
+    
     ![k8s_course2](https://github.com/figuranna/k8s/assets/101461379/95d8893c-62bc-4aba-9faf-e4e23701c8ec)
     * We created a rollback (rev 4) from the 2nd revision
+    
     ![k8s_course3](https://github.com/figuranna/k8s/assets/101461379/bc9828c8-ade2-48b4-8fa4-f2bac6724f61)
 
 * Downside of *rollbacks*: The yaml file doesn't match the state of the live, running, kubernetes system. The yaml file **SHOULD** describe the state of it. Because of this, it's only for emergency situations.
 * If there is a problem with an upgrade (er wrong image link), it won't switch to the new replicaset, it'll keep the previous one running and use that instead. This way no rollback is needed.
+
+
+### Networking / Service discovery
+* The application and the database should be in different **pods** and **services**
+* Kubernetes maintains its own private DNS service (kube-dns)
+    * Basically a database that contains key valuepairs. The keys are just labels and values are the IP addresses of those services.
+* The application looks up the database's IP address in kube-dns service and then uses the IP address to access the database
+
+**Namespaces**
+* We can set up 2 namespaces
+    * One for front-end (Web container ...)
+    * Other one for back-end (User Service, Vehicle tracking ...)
+* If we don't specify a namespace, we only see the resources in the default namespace
+* Kubernetes also has it's own namespaces
+* *kubectl get po -n kube-system* : shows us the "hidden" pods that are running under *kube-system* namespace.
+* We should store the core pods in the default namespace and put the third-party pods in other namespaces.
+
