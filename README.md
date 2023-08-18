@@ -60,6 +60,7 @@ Rollbacks : opposite of *rollouts*.
 * We should store the core pods in the default namespace and put the third-party pods in other namespaces.
 
 **If you are using Cygwin**
+    
     Winpty : is a Windows software package providing an interface similar to a Unix pty-master for communicating with Windows console programs. It makes it much bearable to use *kubectl exec* and create MySQL databases
 
 * We can access any service by its name (*)
