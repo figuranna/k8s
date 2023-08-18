@@ -61,7 +61,7 @@ Rollbacks : opposite of *rollouts*.
 
 **If you are using Cygwin**
     
-    Winpty : is a Windows software package providing an interface similar to a Unix pty-master for communicating with Windows console programs. It makes it much bearable to use *kubectl exec* and create MySQL databases
+Winpty : is a Windows software package providing an interface similar to a Unix pty-master for communicating with Windows console programs. It makes it much bearable to use *kubectl exec* and create MySQL databases
 
 * We can access any service by its name (*)
     * nslookup *database* **->** shows the database created in the cluster (the IPs match)
