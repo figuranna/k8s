@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: richardchesterwood/k8s-fleetman-webapp-angular:release0-5 # firstly it was set back to release 0
+        image: richardchesterwood/k8s-fleetman-webapp-angular:release0
 
 ---
 # document separator
