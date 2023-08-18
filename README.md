@@ -12,7 +12,7 @@ Course: https://www.udemy.com/course/kubernetes-microservices/
 ### ReplicaSets
 * Gives the pods new unique id (er pod/webapp-***spjtb***)
 * kubectl get all
-    * ![k8s_course](https://github.com/figuranna/k8s/assets/101461379/8c5dccac-df52-4aba-8482-b76c0d186494)
+    ![k8s_course](https://github.com/figuranna/k8s/assets/101461379/8c5dccac-df52-4aba-8482-b76c0d186494)
     * **desired:** how many we want running
     * **current:** number of containers that are running
     * **ready:** number of containers that are responding to requests
@@ -62,5 +62,7 @@ Rollbacks : opposite of *rollouts*.
 **If you are using Cygwin**
     Winpty : is a Windows software package providing an interface similar to a Unix pty-master for communicating with Windows console programs. It makes it much bearable to use *kubectl exec* and create MySQL databases
 
-* We can access any service by its name 
+* We can access any service by its name (*)
     * nslookup *database* **->** shows the database created in the cluster (the IPs match)
+* (*) It doesn't actually searches using only the name, in the resolv.conf file there is a search line where it lists the "extensions". If the name is not found then it tries appending the string with these "extensions".
+* You can only look up a service using only its name when it's in the default namespace, otherwise you have to use the fully qualified domain name.
