@@ -27,5 +27,3 @@ Similar to ReplicaSets, but a more sophisticated version. We get automatic rolli
 * If we change the image that we use (er use a newer version) deployment creates a new replicaset for the new version
 * The older version's replicaset is NOT deleted, it's still alive, but the replicas will be set to 0.
     * Command to access the older replicaset: 
-# Kubernetes and minikube training
-Course: https://www.udemy.com/course/kubernetes-microservices/)https://www.udemy.com/course/kubernetes-microservices/
