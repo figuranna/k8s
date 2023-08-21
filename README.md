@@ -12,6 +12,7 @@ Course: https://www.udemy.com/course/kubernetes-microservices/
 ### ReplicaSets
 * Gives the pods new unique id (er pod/webapp-***spjtb***)
 * kubectl get all
+    
     ![k8s_course](https://github.com/figuranna/k8s/assets/101461379/8c5dccac-df52-4aba-8482-b76c0d186494)
     * **desired:** how many we want running
     * **current:** number of containers that are running
@@ -67,3 +68,11 @@ Winpty : is a Windows software package providing an interface similar to a Unix 
     * nslookup *database* **->** shows the database created in the cluster (the IPs match)
 * (*) It doesn't actually searches using only the name, in the resolv.conf file there is a search line where it lists the "extensions". If the name is not found then it tries appending the string with these "extensions".
 * You can only look up a service using only its name when it's in the default namespace, otherwise you have to use the fully qualified domain name.
+
+### Microservices
+
+Monolith(traditional architecture): 
+* An entire system is deployed as a single unit (er. Java application would be a single war file)
+    * The war file would probably fufill many business needs. (er. For a shopping site it would contain a cart, item, product, inventory, user, accessrules, page, catalog....) 
+* These naturally get bigger overtime, so usually a global database is backing these applications
+* There is a high chance that all of the business areas would be able to read and write into the database.
