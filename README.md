@@ -93,7 +93,7 @@ Winpty : is a Windows software package providing an interface similar to a Unix 
 
 
 *Two pizza rule:*
-    * Microservices should be very constrined in their size
+* Microservices should be very constrined in their size
 
 *Databases in microservices:*
 * Lots of projects depend on their integration databases, but for ms architectures these are a big NO
