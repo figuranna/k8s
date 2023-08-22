@@ -86,9 +86,16 @@ Winpty : is a Windows software package providing an interface similar to a Unix 
 * In an ideal world the microservices would run on its oen private physical instance of a server, but due to this being expensive, so in practice they're deployed in their own containers.
 * Coding one microservice will not have direct visibility in another one
 
+*Comunication between microservices:*
 * Microservices communicate through interfaces
     * Usually it's a REST Api, but there can also be messaging between them
 * The interfaces should be minimised between microservices
 
-* **Two pizza rule:**
+
+*Two pizza rule:*
     * Microservices should be very constrined in their size
+
+*Databases in microservices:*
+* Lots of projects depend on their integration databases, but for ms architectures these are a big NO
+    * They contain many different business areas and any part of the system can read and write to this database (maybe even some other systems as well)
+* So each mc contains its own data store
