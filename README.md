@@ -70,9 +70,25 @@ Winpty : is a Windows software package providing an interface similar to a Unix 
 * You can only look up a service using only its name when it's in the default namespace, otherwise you have to use the fully qualified domain name.
 
 ### Microservices
-
-Monolith(traditional architecture): 
+**Monolith (traditional architecture):**
 * An entire system is deployed as a single unit (er. Java application would be a single war file)
     * The war file would probably fufill many business needs. (er. For a shopping site it would contain a cart, item, product, inventory, user, accessrules, page, catalog....) 
 * These naturally get bigger overtime, so usually a global database is backing these applications
 * There is a high chance that all of the business areas would be able to read and write into the database.
+* Releases take a long time due to the building process being complicated
+
+**Microservice (microservice architecture):**
+* Basically building a system as of self-contained components, a system as a set of small services
+* Each one will be responsible for only one business requirement if possible
+* These microservices can function on their own
+    * Can be deployed and developed on their own
+* They're also developed in their own workspace and they deploy on their standalone hardware !!!
+* In an ideal world the microservices would run on its oen private physical instance of a server, but due to this being expensive, so in practice they're deployed in their own containers.
+* Coding one microservice will not have direct visibility in another one
+
+* Microservices communicate through interfaces
+    * Usually it's a REST Api, but there can also be messaging between them
+* The interfaces should be minimised between microservices
+
+* **Two pizza rule:**
+    * Microservices should be very constrined in their size
