@@ -60,3 +60,25 @@ spec:
       port: 8080
 
   type: ClusterIP # exposes this port to other pods in the cluster
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: fleetman-api-gateway
+
+spec:
+  # This defines which pods are going to be represented by this Service
+  # The service becomes a network endpoint for either other services
+  # or maybe external users to connect to (eg browser)
+  selector:
+    app: api-gateway # relates to workloads.yaml metadata-labels-app: api-gateway
+
+  ports:
+    - name: http
+      port: 8080
+
+      # previously used a NodePort just to test if it's working 
+
+  type: ClusterIP # exposes this port to other pods in the cluster
