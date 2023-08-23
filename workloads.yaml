@@ -13,7 +13,7 @@ spec:
         app: queue # not a very good label name
     spec:
       containers:
-      - name: webapp
+      - name: queue
         image: richardchesterwood/k8s-fleetman-queue:release1
 
 ---
@@ -33,8 +33,31 @@ spec:
         app: position-simulator # not a very good label name
     spec:
       containers:
-      - name: webapp
+      - name: position-simulator
         image: richardchesterwood/k8s-fleetman-position-simulator:release1
+        env: # setting up enviroment variables
+        - name: SPRING_PROFILES_ACTIVE
+          value: production-microservice
+
+---
+
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: position-tracker
+spec:
+  selector: 
+    matchLabels:
+      app: position-tracker
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        app: position-tracker # not a very good label name
+    spec:
+      containers:
+      - name: position-tracker
+        image: richardchesterwood/k8s-fleetman-position-tracker:release1
         env: # setting up enviroment variables
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
