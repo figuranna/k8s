@@ -84,3 +84,26 @@ spec:
         env: # setting up enviroment variables
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
+
+---
+
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: webapp
+spec:
+  selector: 
+    matchLabels:
+      app: webapp
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        app: webapp # not a very good label name
+    spec:
+      containers:
+      - name: webapp
+        image: richardchesterwood/k8s-fleetman-webapp-angular:release1
+        env: # setting up enviroment variables
+        - name: SPRING_PROFILES_ACTIVE
+          value: production-microservice
