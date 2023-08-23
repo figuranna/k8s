@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: queue
+spec:
+  selector: 
+    matchLabels:
+      app: queue
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        app: queue # not a very good label name
+    spec:
+      containers:
+      - name: webapp
+        image: richardchesterwood/k8s-fleetman-queue:release1
+
