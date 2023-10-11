@@ -3,9 +3,14 @@
 Course: https://www.udemy.com/course/kubernetes-microservices/
 
 ### Kubernetes
+Kubernetes is an open-source system for automating deployment and scaling of containerized applications. Mainly used along with Docker containers. It was originally created and used by Google, but currently it's maintained by the Cloud Native Computing Foundation (CNCF). It became the standard for container orchestration.
+
 ### Containers
+
 ### Clusters
+
 ### Pods
+
 ### Services
 * Each service is given it's own private IP address that is only visible inside the Kubernetes cluster.
 
